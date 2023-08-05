@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora completa</title>
+    <link rel="stylesheet" href="calculadora-completa.css" type="text/css" />
+    <script src="calculadora-completa.js"></script>
+</head>
+
+<body>
+    <main>
+        <section class="calContainer">
+            <div class="calDisplay">
+                <div class="display"></div>
+                <div class="displayResult"></div>
+            </div>
+
+            <div class="upContainer">
+                <button onclick="addDisplay('Math.sin(')">sin</button>
+                <button onclick="addDisplay('Math.cos(')">cos</button>
+                <button onclick="addDisplay('Math.tan(')">tan</button>
+                <button onclick="addDisplay('Math.log10(')">log<sub>10</sub></button>
+                <button onclick="addDisplay('Math.log(')">ln</button>
+                <button class="write" onclick="addDisplay('**')">^</button>
+                <button class="write" onclick="addDisplay('Math.sqrt(')">√</button>
+                <button class="write" onclick="addDisplay('%')">mod</button>
+                <button class="write" onclick="addDisplay('(')">(</button>
+                <button class="write" onclick="addDisplay(')')">)</button>
+            </div>
+            <div class="downContainer">
+                <div class="numContainer">
+                    <button class="write" onclick="addDisplay('9')">9</button>
+                    <button class="write" onclick="addDisplay('8')">8</button>
+                    <button class="write" onclick="addDisplay('7')">7</button>
+                    <button class="write" onclick="addDisplay('6')">6</button>
+                    <button class="write" onclick="addDisplay('5')">5</button>
+                    <button class="write" onclick="addDisplay('4')">4</button>
+                    <button class="write" onclick="addDisplay('3')">3</button>
+                    <button class="write" onclick="addDisplay('2')">2</button>
+                    <button class="write" onclick="addDisplay('1')">1</button>
+                    <button class="write" onclick="addDisplay('0')">0</button>
+                    <button class="write" onclick="addDisplay('.')">.</button>
+                    <button class="write" onclick="addDisplay('Math.PI')">π</button>
+                </div>
+                <div class="operationContainer">
+                    <button class="write" onclick="addDisplay('+')">+</button>
+                    <button class="write" onclick="addDisplay('-')">-</button>
+                    <button class="write" onclick="addDisplay('*')">x</button>
+                    <button class="write" onclick="addDisplay('/')">/</button>
+                </div>
+                <div class="resultContainer">
+                    <button onclick="clearCalc()">Clr</button>
+                    <button onclick="delCalc()">Del</button>
+                    <button onclick="calcularResultado()">=</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
