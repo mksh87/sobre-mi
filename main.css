@@ -1,0 +1,33 @@
+main {
+    display: grid;
+    text-align: center;
+}
+
+section {
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 5px;
+    padding: 20px;
+}
+
+.practico {
+    background-color: grey;
+}
+
+#practico0 {
+background-color:darkcyan;
+}
+
+p {
+    background-color: brown;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: -3px 3px rgb(54, 54, 54)
+}
+
+a {
+    color: white;
+}

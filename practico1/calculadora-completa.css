@@ -30,7 +30,7 @@ button {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 16px;
+    font-size: clamp(8px, 3vw, 16px);
 }
 
 button:focus {
@@ -47,7 +47,16 @@ button-30:active {
     transform: translateY(2px);
 }
 
+.upContainer button {
+    background-color: #edecec;
+}
+
+
 .calContainer {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #b7b4b4;
     max-width: 300px;
     display: grid;
     grid-gap: 10px;
@@ -55,12 +64,16 @@ button-30:active {
 }
 
 .calDisplay {
-    background-color: grey;
+    color: white;
+    background-color: darkslategrey;
     height: 60px;
 }
 
 p {
+    text-align: center;
+    font-family: "JetBrains Mono", monospace;
     padding: 0;
+    margin: 0;
 }
 
 .display {
@@ -80,7 +93,7 @@ p {
 
 .downContainer {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr 1fr;
     grid-gap: 5px;
     grid-auto-rows: minmax(100px, auto);
