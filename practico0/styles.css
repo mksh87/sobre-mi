@@ -47,15 +47,21 @@ p {
 elementos en el mismo renglon y ajustando autmáticamente al ancho de la pantalla */
 
 .multimediaContanier {
-    display: grid; 
+    display: flex; 
     grid-template-columns: 1fr 1fr; 
     grid-gap: 20px; 
     border: 2px solid rgb(228, 0, 0); 
     width: 100%; 
+    min-width: 200px;
+}
+
+img {
+    width: -webkit-fill-available;
 }
 
 .multimedia {
-    margin: 10px; 
+    width: 43%;
+    margin: 1%; 
     border: 1px solid black; 
     border-radius: 10px;
     padding: 5px;

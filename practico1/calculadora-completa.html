@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <title>Calculadora completa</title>
     <link rel="stylesheet" href="calculadora-completa.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/e250766299.js" crossorigin="anonymous"></script>
     <script src="calculadora-completa.js"></script>
+    <link rel="icon" type="image/x-icon" href="../assets/img/icon-calculadora.png">
 </head>
 
 <body>
+    <nav>
+        <button onclick="window.location.href='../index.html';"><i class="fa-solid fa-house"></i> INICIO</button>
+        <button onclick="window.location.href='./calculadora.html';"><i class="fa-solid fa-calculator"></i> VERSIÓN BÁSICA</button>    
+  
+    </nav>
     <main>
         <section class="calContainer">
             <p><strong>LA CALCULADORA DE MARCOS</strong></p>
@@ -18,38 +25,20 @@
             </div>
 
             <div class="upContainer">
-                <button onclick="addDisplay('Math.sin(')">sin</button>
-                <button onclick="addDisplay('Math.cos(')">cos</button>
-                <button onclick="addDisplay('Math.tan(')">tan</button>
-                <button onclick="addDisplay('Math.log10(')">log<sub>10</sub></button>
-                <button onclick="addDisplay('Math.log(')">ln</button>
-                <button class="write" onclick="addDisplay('**')">^</button>
-                <button class="write" onclick="addDisplay('Math.sqrt(')">√</button>
-                <button class="write" onclick="addDisplay('%')">mod</button>
-                <button class="write" onclick="addDisplay('(')">(</button>
-                <button class="write" onclick="addDisplay(')')">)</button>
+                <button onclick="addDisplay('SIN(');addCalculation('Math.sin(');">sin</button>
+                <button onclick="addDisplay('COS(');addCalculation('Math.cos(');">cos</button>
+                <button onclick="addDisplay('TAN(');addCalculation('Math.tan(');">tan</button>
+                <button onclick="addDisplay('LOG(');addCalculation('Math.log10(');">log<sub>10</sub></button>
+                <button onclick="addDisplay('LN(');addCalculation('Math.log(');">ln</button>
+                <button class="write" onclick="addDisplay('^');addCalculation('**');">^</button>
+                <button class="write" onclick="addDisplay('√(');addCalculation('Math.sqrt(');">√</button>
+                <button class="write" onclick="addDisplay(' mod ');addCalculation('%');">mod</button>
+                <button class="write" onclick="addDisplay('(');addCalculation('(');">(</button>
+                <button class="write" onclick="addDisplay(')');addCalculation(')');">)</button>
             </div>
             <div class="downContainer">
                 <div class="numContainer">
-                    <button class="write" onclick="addDisplay('7')">7</button>
-                    <button class="write" onclick="addDisplay('8')">8</button>
-                    <button class="write" onclick="addDisplay('9')">9</button>
-                    <button class="write" onclick="addDisplay('4')">4</button>
-                    <button class="write" onclick="addDisplay('5')">5</button>
-                    <button class="write" onclick="addDisplay('6')">6</button>
-                    <button class="write" onclick="addDisplay('1')">1</button>
-                    <button class="write" onclick="addDisplay('2')">2</button>
-                    <button class="write" onclick="addDisplay('3')">3</button>
-
-                    <button class="write" onclick="addDisplay('0')">0</button>
-                    <button class="write" onclick="addDisplay('.')">.</button>
-                    <button class="write" onclick="addDisplay('Math.PI')">π</button>
-                </div>
-                <div class="operationContainer">
-                    <button class="write" onclick="addDisplay('+')">+</button>
-                    <button class="write" onclick="addDisplay('-')">-</button>
-                    <button class="write" onclick="addDisplay('*')">x</button>
-                    <button class="write" onclick="addDisplay('/')">/</button>
+                    <script>generarBotones()</script>
                 </div>
                 <div class="resultContainer">
                     <button onclick="clearCalc()">Clr</button>
