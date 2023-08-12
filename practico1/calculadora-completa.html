@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculadora completa</title>
-    <link rel="stylesheet" href="calculadora-completa.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/calculadora-completa.css" type="text/css" />
     <script src="https://kit.fontawesome.com/e250766299.js" crossorigin="anonymous"></script>
-    <script src="calculadora-completa.js"></script>
     <link rel="icon" type="image/x-icon" href="../assets/img/icon-calculadora.png">
 </head>
 
 <body>
     <nav>
         <button onclick="window.location.href='../index.html';"><i class="fa-solid fa-house"></i> INICIO</button>
-        <button onclick="window.location.href='./calculadora.html';"><i class="fa-solid fa-calculator"></i> VERSIÓN BÁSICA</button>    
-  
+        <button onclick="window.location.href='./index.html';"><i class="fa-solid fa-calculator"></i> VERSIÓN
+            BÁSICA</button>
+
     </nav>
     <main>
         <section class="calContainer">
@@ -25,29 +25,21 @@
             </div>
 
             <div class="upContainer">
-                <button onclick="addDisplay('SIN(');addCalculation('Math.sin(');">sin</button>
-                <button onclick="addDisplay('COS(');addCalculation('Math.cos(');">cos</button>
-                <button onclick="addDisplay('TAN(');addCalculation('Math.tan(');">tan</button>
-                <button onclick="addDisplay('LOG(');addCalculation('Math.log10(');">log<sub>10</sub></button>
-                <button onclick="addDisplay('LN(');addCalculation('Math.log(');">ln</button>
-                <button class="write" onclick="addDisplay('^');addCalculation('**');">^</button>
-                <button class="write" onclick="addDisplay('√(');addCalculation('Math.sqrt(');">√</button>
-                <button class="write" onclick="addDisplay(' mod ');addCalculation('%');">mod</button>
-                <button class="write" onclick="addDisplay('(');addCalculation('(');">(</button>
-                <button class="write" onclick="addDisplay(')');addCalculation(')');">)</button>
+                <!--generarFunciones genera los botones de funciones avanzadas en este div-->
             </div>
             <div class="downContainer">
+                <!--generarBotones genera los botones de números y operaciones básicas en este div-->
                 <div class="numContainer">
-                    <script>generarBotones()</script>
                 </div>
                 <div class="resultContainer">
-                    <button onclick="clearCalc()">Clr</button>
-                    <button onclick="delCalc()">Del</button>
-                    <button onclick="calcularResultado()">=</button>
+                    <button id="clearCalc">Clr</button>
+                    <button id="delCalc">Del</button>
+                    <button id="calcularResultado">=</button>
                 </div>
             </div>
         </section>
     </main>
+    <script src="./assets/js/calculadora-completa.js"></script>
 </body>
 
 </html>
