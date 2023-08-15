@@ -143,3 +143,9 @@ p {
     grid-gap: 10px;
     grid-auto-rows: minmax(30px, 50px);
 }
+
+@media (orientation: portrait) {
+    .calContainer {
+      width: 100vw;
+    }
+  }
