@@ -1,47 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Calculadora completa</title>
-    <link rel="stylesheet" href="./assets/css/calculadora-completa.css" type="text/css" />
-    <script src="https://kit.fontawesome.com/e250766299.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../assets/img/icon-calculadora.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Calculadora completa</title>
+  <link rel="stylesheet" href="./assets/css/calculadora-completa.css" type="text/css" />
+  <script src="https://kit.fontawesome.com/e250766299.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/img/icon-calculadora.png">
+  <style>
+
+  </style>
 </head>
 
 <body>
-    
-    
-    <nav>
-        <button onclick="window.location.href='../index.html';"><i class="fa-solid fa-house"></i> INICIO</button>
-        <button onclick="window.location.href='./index.html';"><i class="fa-solid fa-calculator"></i> VERSIÓN
-            BÁSICA</button>
-
+  <main>
+    <nav class="menu">
+      <button onclick="window.location.href='../index.html';"><i class="fa-solid fa-house"></i> INICIO</button>
+      <button onclick="window.location.href='./index.html';"><i class="fa-solid fa-calculator"></i> VERSIÓN
+        BÁSICA</button>
     </nav>
-    <main>
-        <section class="calContainer">
-            <p><strong>LA CALCULADORA DE MARCOS</strong></p>
-            <div class="calDisplay">
-                <div class="display"></div>
-                <div class="displayResult"></div>
-            </div>
+    <section class="calContainer">
+      <p><strong>LA CALCULADORA DE MARCOS</strong></p>
+      <div class="calDisplay">
+        <div class="display"></div>
+        <div class="displayResult"></div>
+      </div>
 
-            <div class="upContainer">
-                <!--generarFunciones genera los botones de funciones avanzadas en este div-->
-            </div>
-            <div class="downContainer">
-                <!--generarBotones genera los botones de números y operaciones básicas en este div-->
-                <div class="numContainer">
-                </div>
-                <div class="resultContainer">
-                    <button id="clearCalc">Clr</button>
-                    <button id="delCalc">Del</button>
-                    <button id="calcularResultado">=</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    <script src="./assets/js/calculadora-completa.js"></script>
+      <div class="upContainer">
+        <!--generarFunciones genera los botones de funciones avanzadas en este div-->
+      </div>
+      <div class="downContainer">
+        <!--generarBotones genera los botones de números y operaciones básicas en este div-->
+        <div class="numContainer">
+        </div>
+        <div class="resultContainer">
+          <button id="clearCalc">Clr</button>
+          <button id="delCalc">Del</button>
+          <button id="calcularResultado">=</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./assets/js/calculadora-completa.js"></script>
+  </main>
 </body>
 
 </html>

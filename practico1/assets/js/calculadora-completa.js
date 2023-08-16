@@ -6,7 +6,7 @@ let displayDiv2;
 
 //Genera automáticamente los botones principales(números y operaciones básicas)
 function generarBotones() {
-    const numContainer = ["7", "8", "9", "÷", "4", "5", "6", "x", "1", "2", "3", "-", "0", ".", "π", "+"];
+    const numContainer = ["7", "8", "9", " ÷ ", "4", "5", "6", " x ", "1", "2", "3", " - ", "0", ".", "π", " + "];
     const numContainerFunction = ["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "Math.PI", "+"];
     const containerDiv = document.querySelector('.numContainer');
 
@@ -23,7 +23,7 @@ function generarBotones() {
 
 function generarFunciones() {
     const funcButton = ["sin", "cos", "tan", "log10", "Ln", "^", "√", "mod", "(", ")"];
-    const funcContainer = ["SIN(", "COS(", "TAN(", "LOG(", "Ln(", "^", "√(", "%", "(", ")"];
+    const funcContainer = [" SIN(", " COS(", " TAN(", " LOG(", " Ln(", "^", " √(", "%", " (", ") "];
     const funcContainerFunction = ["Math.sin(", "Math.cos(", "Math.tan(", "Math.log10(", "Math.log(", "**", "Math.sqrt(", "%", "(", ")"];
     const containerDiv = document.querySelector('.upContainer');
 

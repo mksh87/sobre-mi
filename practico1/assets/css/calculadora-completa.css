@@ -1,151 +1,180 @@
 @import url('https://fonts.cdnfonts.com/css/calculator');
 
 main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+p {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+  background-color: #333;
+  color: #fff;
+  height: 50px;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+  padding: 1vw 0px;
+  margin: 0 0 1vw 0;
 }
 
 nav button {
 
-    height: 40px;
-    padding: 10px;
-    margin: 5px;
+  height: 40px;
+  padding: 10px;
+  margin: 5px;
 }
 
 button {
-    align-items: center;
-    appearance: none;
-    background-color: #FCFCFD;
-    border-radius: 4px;
-    border-width: 0;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    color: #36395A;
-    cursor: pointer;
-    font-family: "JetBrains Mono", monospace;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: clamp(8px, 3vw, 16px);
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  color: #36395A;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: clamp(8px, 3vw, 16px);
 }
 
 button:focus {
-    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
 button:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    transform: translateY(-2px);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
 
 button-30:active {
-    box-shadow: #D6D6E7 0 3px 7px inset;
-    transform: translateY(2px);
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 .upContainer button {
-    background-color: #edecec;
+  background-color: #edecec;
 }
 
 
 .calContainer {
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #b7b4b4;
-    max-width: 300px;
-    display: grid;
-    grid-gap: 10px;
-    justify-content: center;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #b7b4b4;
+  max-width: 300px;
+  grid-gap: 10px;
+    display: flex;
+  align-self: center;    
 }
+
+/* Para pantallas verticales basarse en el ancho */
+@media (orientation: portrait) {
+  .calContainer {
+    flex-direction: column;
+    width: 100vw;
+  }
+}
+
+/* Para pantallas horizontales basarse en la altura */
+@media (orientation: landscape) {
+  .calContainer {
+    flex-direction: column;
+    height: 80vh;
+  }
+}
+
+
 
 .calDisplay {
-    color: white;
-    background-color: darkslategrey;
-    height: 60px;
-}
-
-p {
-    text-align: center;
-    font-family: "JetBrains Mono", monospace;
-    padding: 0;
-    margin: 0;
+  color: white;
+  background-color: darkslategrey;
 }
 
 .display {
-    font-family: 'Calculator', sans-serif;
-    padding: 0px 15px 0px 15px;
-    text-align: right;
-    font-size: 1.5em;
+  min-height: 40px;
+  font-family: 'Calculator', sans-serif;
+  padding: 0px 15px 0px 15px;
+  text-align: right;
+  font-size: 1.5em;
 }
 
 .displayResult {
-    font-family: 'Calculator', sans-serif;
-    padding: 0px 15px 0px 15px;
-    text-align: right;
-    font-size: 2em;
-    font-weight: bold;
+  height: 40px;
+  font-family: 'Calculator', sans-serif;
+  padding: 0px 15px 0px 15px;
+  text-align: right;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .downContainer {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 4fr 1fr;
-    grid-gap: 5px;
-    grid-auto-rows: minmax(100px, auto);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 
 .upContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(50px, 50px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, 50px);
 }
 
 .numContainer {
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(30px, 50px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(30px, 50px);
 }
 
 .operationContainer {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(30px, 50px);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(30px, 50px);
 }
 
 
 .resultContainer {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 1fr 1fr 2fr;
-    grid-gap: 10px;
-    grid-auto-rows: minmax(30px, 50px);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr 1fr 2fr;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(30px, 50px);
 }
-
-@media (orientation: portrait) {
-    .calContainer {
-      width: 100vw;
-    }
-  }
