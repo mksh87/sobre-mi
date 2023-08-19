@@ -1,16 +1,21 @@
-var blockSize = 25;
-var total_row = 17; //total row number
-var total_col = 17; //total column number
+var total_row = 30; //total row number
+var total_col = total_row; //total column number
+
+if(window.innerHeight > window.innerWidth){	
+var blockSize = window.innerWidth / (total_row*1.2);
+} else {
+	var blockSize = window.innerHeight / (total_row*1.3);
+}
 var board;
 var context;
 var carLength=2;
 var level=1;
 
-var carX = 25;
-var carY = 25;
+var carX = blockSize;
+var carY = blockSize;
 
-var plusX = 200;
-var plusY = 200;
+var plusX = blockSize*8;
+var plusY = blockSize*8;
 
 // Set the total number of rows and columns
 var speedX = 0; //speed of car in x coordinate.

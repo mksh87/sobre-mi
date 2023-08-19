@@ -27,8 +27,15 @@
 			</p>
 			<p>Si quieres dar un paso atrás a la versión de 5 opciones haz click <a href="ppt5.html" class="button" style="display: inline;">AQUI</a>.</p>
 			<p>Si ya te aburriste y quieres dar un paso más haz click <a href="ppt9.html" class="button" style="display: inline;">AQUI</a>.</p>
+			<form onsubmit="return false">
+				<input type="text" id="userName" pattern="[A-Za-z0-9]{1,20}" required="required" maxlength="15"
+					placeholder="Ingresa nombre y presiona Enter">
+				<input type="submit" value="" onclick="elegirUsername()" style="height: 0;visibility: hidden;" />
+			</form>
+			<h4 id="userNameSelection"></h4>
 			<ul class="actions stacked">
-				<li><a href="#one" class="button scrolly">¡A jugar!</a></li>
+				<li><a href="#one" class="button scrolly" id="comenzar" onclick="mostrarPuntaje()"
+						style="display:none;">¡A jugar!</a></li>
 			</ul>
 		</div>
 	</section>
