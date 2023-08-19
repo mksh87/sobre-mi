@@ -1,10 +1,10 @@
-var total_row = 30; //total row number
+var total_row = 25; //total row number
 var total_col = total_row; //total column number
 
 if(window.innerHeight > window.innerWidth){	
-var blockSize = window.innerWidth / (total_row*1.2);
+var blockSize = Math.floor(window.innerWidth / (total_row*1.2));
 } else {
-	var blockSize = window.innerHeight / (total_row*1.3);
+	var blockSize = Math.floor(window.innerHeight / (total_row*1.3));
 }
 var board;
 var context;
@@ -61,7 +61,7 @@ function update() {
 	}
 
 	// Fondo del juego
-	context.fillStyle = "blue";
+	context.fillStyle = "aquamarine";
 	context.fillRect(0, 0, board.width, board.height);
 	
 	//Posición actual de la cabeza (no se si es necesario)
@@ -77,9 +77,9 @@ function update() {
 	carY += speedY * blockSize; //updating car position in Y coordinate.
 	
 	//Pinta toda la víbora de rojo
-	context.fillStyle = "red";
+	context.fillStyle = "green";
 	context.fillRect(carX, carY, blockSize, blockSize);
-	context.fillStyle = "orange";
+	context.fillStyle = "darkslategray";
 	for(i=carLength-1;i>0;i--){
 		context.fillRect(car[i][0], car[i][1], blockSize, blockSize);
 	}
@@ -136,12 +136,12 @@ function isCrash() {
 function isPlus(){
 	if (carX===plusX && carY===plusY){
 		carLength+=1;
-		plusX = Math.floor(Math.random() * total_row )* blockSize;
+		plusX = Math.floor(Math.random() * total_row) * blockSize;
 		plusY = Math.floor(Math.random() * total_col) * blockSize;
 	}
 	puntajeTexto.textContent="Tu puntaje es: "+(carLength-2);
 
-	if(carLength%10===0){
+	if(carLength%7===0){
 		level +=1;
 	}
 
