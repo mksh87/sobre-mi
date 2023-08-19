@@ -16,12 +16,12 @@ body {
     transform: rotate(45deg);
 }
 
-/*Si se ve desde la PC no muestra botones. Solo para pantallas táctiles*/
+/*Si se ve desde la PC no muestra botones. Solo para pantallas táctiles
 @media screen {
     .arrowContainer {
         display: none;
     }
-}
+}*/
 
 .arrow {
     width: 36px;
