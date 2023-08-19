@@ -4,6 +4,7 @@ var total_col = 17; //total column number
 var board;
 var context;
 var carLength=2;
+var level=1;
 
 var carX = 25;
 var carY = 25;
@@ -46,7 +47,7 @@ window.onload = function () {
 
 	document.addEventListener("keyup", changeDirection); //for movements
 	// Set car speed
-	setInterval(update, 10000 / 100);
+	setInterval(update, 10000 / (50+level*10));
 }
 
 function update() {
@@ -89,7 +90,6 @@ function update() {
 
 // Movement of the car - We are using addEventListener
 function changeDirection(e) {
-	console.log("Dirección cambiada:", e.keyCode);
 	if ((e.keyCode ==38 || e.code == "ArrowUp" ) && speedY != 1) {
 		// If up arrow key pressed with this condition...
 		// car will not move in the opposite direction
@@ -109,11 +109,6 @@ function changeDirection(e) {
 	else if ((e.keyCode ==39 || e.code == "ArrowRight") && speedX != -1) {
 		//If Right arrow key pressed
 		speedX = 1;
-		speedY = 0;
-	}
-	else if (e.code == "KeyP") {
-		//If Right arrow key pressed
-		speedX = 0;
 		speedY = 0;
 	}
 }
@@ -139,5 +134,10 @@ function isPlus(){
 		plusX = Math.floor(Math.random() * total_row )* blockSize;
 		plusY = Math.floor(Math.random() * total_col) * blockSize;
 	}
-	puntajeTexto.textContent="Tu puntaje es: "+(carLength-2)
+	puntajeTexto.textContent="Tu puntaje es: "+(carLength-2);
+
+	if(carLength%10===0){
+		level +=1;
+	}
+
 }
