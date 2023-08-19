@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El juego del Autito</title>
     <link rel="stylesheet" href="style.css">
-    
+
+
 </head>
- 
+
 <body>
-    <h1>La viborita v1.0</h1>
-    <canvas id="board"></canvas>
+    <section class="boardContainer">
+        <h1>La viborita v1.0</h1>
+        <canvas id="board"></canvas>
+    </section>
+    <h2 id="puntaje"></p>
+    <section class="arrowContainer" id="arrowContainer">
+        <aside class="arrow arrow-up" data-keycode="38"></aside>
+        <aside class="arrow arrow-right" data-keycode="39"></aside>
+        <aside class="arrow arrow-left" data-keycode="37"></aside>
+        <aside class="arrow arrow-down" data-keycode="40"></aside>
+    </section>
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
