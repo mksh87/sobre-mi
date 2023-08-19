@@ -1,8 +1,10 @@
-let scorePlayer=0, scoreComputer=0, scoreMax=0; //Variables de puntajes
+let scorePlayer = 0, scoreComputer = 0, scoreMax = 0; //Variables de puntajes
 let usuario; //elección del usuario
 let partidas; //define variable de cantidad de partidas que se deben ganar para finalizar
+let userName = "";
 
 //Párrafos de mensajes
+const userNameSelector = document.getElementById("userNameSelection");
 const mensajeElement = document.getElementById("mensaje"); // Al elegir (o no) una opción al iniciar partida.
 const mensajeUsuario = document.getElementById("mensaje1"); //jugada del usuario.
 const mensajeComputadora = document.getElementById("mensaje2");//jugada de computadora.
@@ -17,6 +19,19 @@ const buttons = document.getElementsByName("eleccion");// botones de opciones
 let originalOnClicks = {}; // Para almacenar los eventos onclick originales
 let ultimoBotonPresionado = null; // Para almacenar el último botón presionado
 
+function elegirUsername() {
+  const inputField = document.querySelector("#userName");
+  if (inputField.checkValidity()) {
+    userName = inputField.value;
+    userNameSelector.textContent = "Elegiste el nombre " + userName + ". ¡Como quieras! No soy quien para juzgar."
+    document.getElementById('comenzar').style.display = "block";
+  }
+}
+
+function mostrarPuntaje() {
+  document.getElementById('one').style.display = "block";
+  document.getElementById('two').style.display = "block";
+}
 
 function cambiarFondo(boton) {// Cambiar el fondo del botón presionado a verde
   if (ultimoBotonPresionado !== null) {  // Restablecer el fondo del último botón presionado a su estado original
@@ -45,10 +60,10 @@ function restaurarOnClick() { // Restaurar los eventos onclick originales
   }
 }
 
-function generarBotones(){
-    while (btnGen.firstChild) {
-      btnGen.removeChild(btnGen.firstChild);
-    }    // Eliminar botones previos
+function generarBotones() {
+  while (btnGen.firstChild) {
+    btnGen.removeChild(btnGen.firstChild);
+  }    // Eliminar botones previos
   for (let i = 0; i < jugadas.length; i++) {
     let button = document.createElement("button");
     button.className = "button fit";
@@ -85,49 +100,49 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
 
 function obtenerJugadaUsuario(valor) { //Devuelve elección de usuario según botón que presione.
   usuario = Number(valor);
-    mensajeUsuario.textContent = "Elegiste "+jugadas[usuario].toUpperCase();
-return usuario;
+  mensajeUsuario.textContent = "Elegiste " + jugadas[usuario].toUpperCase();
+  return usuario;
 }
 
 function obtenerJugadaComputadora() {
   let computadora = Math.floor(Math.random() * jugadas.length);
-    mensajeComputadora.textContent = " La computadora elige "+jugadas[computadora].toUpperCase();
+  mensajeComputadora.textContent = " La computadora elige " + jugadas[computadora].toUpperCase();
   return computadora;
 }
 
-function checkEnd(){ //Verifica si scoreMax llega a las puntos elegidos. Da mensaje de finalización y deshabilita botones con desactivarOnClick()
-  scoreMax = Math.max(scorePlayer,scoreComputer);
-  if(scoreMax>=partidas){
+function checkEnd() { //Verifica si scoreMax llega a las puntos elegidos. Da mensaje de finalización y deshabilita botones con desactivarOnClick()
+  scoreMax = Math.max(scorePlayer, scoreComputer);
+  if (scoreMax >= partidas) {
     desactivarOnClick()
-    if (scorePlayer<scoreComputer){
-      mensajeFin.textContent = 
-      "La computadora ha llegado a "+partidas+" victorias y gana la partida. No te desanimes! Hay cosas peores en la vida.";
-    }else if(scorePlayer>scoreComputer){
-      mensajeFin.textContent = 
-      "Llegaste a "+partidas+" victorias y ganaste la partida. Siempre confiamos en ti. ¡FELICITACIONES!";
-    }else {
-      mensajeFin.textContent = 
-      "Algo ha salido mal. Por favor informar el bug para ayudara este programador novato.";
+    if (scorePlayer < scoreComputer) {
+      mensajeFin.textContent =
+        "La computadora ha llegado a " + partidas + " victorias y gana la partida. No te desanimes! Hay cosas peores en la vida.";
+    } else if (scorePlayer > scoreComputer) {
+      mensajeFin.textContent =
+        "Llegaste a " + partidas + " victorias y ganaste la partida. Siempre confiamos en ti. ¡FELICITACIONES!";
+    } else {
+      mensajeFin.textContent =
+        "Algo ha salido mal. Por favor informar el bug para ayudara este programador novato.";
     }
   }
-}   
+}
 
-function determinarGanador(a){ // Usa obtenerJugadaUsuario y obtenerJugadaComputadora para determinar ganador. Suma puntos y da mensaje
+function determinarGanador(a) { // Usa obtenerJugadaUsuario y obtenerJugadaComputadora para determinar ganador. Suma puntos y da mensaje
   let user = obtenerJugadaUsuario(a);
   let comp = Number(obtenerJugadaComputadora());
-  if( user===comp){
-    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival. \nLa partida continua "+scorePlayer+" - "+scoreComputer+".");
-    }else{
-    for(let r=1; r<jugadas.length;r+=2){
-        if((user+r)%jugadas.length===comp){
-            scoreComputer++;
-            mensajeResultado.textContent =((jugadas[comp]+" "+mensajes[user][comp]+" "+jugadas[user]).toUpperCase()+". Ha ganado la computadora. Era esperable. \nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
-        } else if((user+1+r)%jugadas.length===comp){
-            scorePlayer++;
-            mensajeResultado.textContent =((jugadas[user]+" "+mensajes[user][comp]+" "+jugadas[comp]).toUpperCase()+".  ¡Ganaste! Seguramente fue con suerte. \nLa partida se encuentra "+scorePlayer+" - "+scoreComputer+".");
-          }
+  if (user === comp) {
+    mensajeResultado.textContent = ("  Empate. Muy poco original copiar a tu rival. \nLa partida continua " + scorePlayer + " - " + scoreComputer + ".");
+  } else {
+    for (let r = 1; r < jugadas.length; r += 2) {
+      if ((user + r) % jugadas.length === comp) {
+        scoreComputer++;
+        mensajeResultado.textContent = ((jugadas[comp] + " " + mensajes[user][comp] + " " + jugadas[user]).toUpperCase() + ". Ha ganado la computadora. Era esperable. \nLa partida se encuentra " + scorePlayer + " - " + scoreComputer + ".");
+      } else if ((user + 1 + r) % jugadas.length === comp) {
+        scorePlayer++;
+        mensajeResultado.textContent = ((jugadas[user] + " " + mensajes[user][comp] + " " + jugadas[comp]).toUpperCase() + ".  ¡Ganaste! Seguramente fue con suerte. \nLa partida se encuentra " + scorePlayer + " - " + scoreComputer + ".");
+      }
     }
-}
+  }
   checkEnd();
 }
 
@@ -144,8 +159,8 @@ function resetear() { //Restaura todo a la pantalla de selección de partidas
   mensajeComputadora.textContent = "";
   mensajeResultado.textContent = "";
   mensajeFin.textContent = "";
-  scorePlayer=0;
-  scoreComputer=0;
+  scorePlayer = 0;
+  scoreComputer = 0;
   codigoElement.style.display = "none";
   document.getElementById("btn-comenzar").setAttribute('onclick', 'comenzarJuego()');
 }

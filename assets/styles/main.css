@@ -19,6 +19,11 @@ section {
 background-color:darkcyan;
 }
 
+
+#practico2 {
+    background-color:rgb(74, 139, 0);
+    }
+
 p {
     background-color: brown;
     color: white;
