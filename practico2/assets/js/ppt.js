@@ -23,7 +23,7 @@ function elegirUsername() {
   const inputField = document.querySelector("#userName");
   if (inputField.checkValidity()) {
     userName = inputField.value;
-    userNameSelector.textContent = "Elegiste el nombre " + userName + ". ¡Como quieras! No soy quien para juzgar."
+    userNameSelector.textContent = "¿Elegiste el nombre... " + userName + "?... ¡Como quieras! No soy quien para juzgar."
     document.getElementById('comenzar').style.display = "block";
   }
 }
