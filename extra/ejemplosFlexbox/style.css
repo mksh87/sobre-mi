@@ -1,0 +1,58 @@
+.box {
+    display: flex;
+    /*flex-direction: row-reverse; /*primero veamos: por defecto en row*/
+    /*flex-direction: column; */
+    /*flex-direction: column-reverse; */
+    
+    /*Agregar más elementos (10 por ejemplo) Cuando no entran los elementos en el flex padre saltan de fila*/
+    /*flex-wrap: wrap; /*primero veamos: por defecto en nowrap*/
+    /*flex-wrap: wrap-reverse;*/
+    
+    /*Las 2 anteriores podemos unirlas en una */
+    /*flex-flow: row-reverse wrap;
+
+    /*Como alineamos los elementos internos? (quedarse con solo 3 elementos para verlo mejor)*/
+    /*justify-content: center;*/
+    /*justify-content: flex-end;*/
+    /*justify-content: flex-start;*/
+    /*justify-content: space-around;*/
+    /*justify-content: space-between;*/
+
+    /*Otra propiedad es el align-items(agregemos una altura de 500px al div padre)*/
+    /*
+    height: 500px;
+    align-items: center;
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: stretch;
+    align-items: baseline;*/ 
+    
+    /*(baseline alinea con respecto a la base del elemento para verlo cambiar el fort size de uno de los elem)*/
+
+    /*Otra Propiedad es align-content volvamos a configurar en a flex-wrap en wrap */
+    /*
+    height: 500px;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-content: space-around;
+    align-content: stretch;
+    align-content: flex-end;
+    align-content: flex-start;
+    */
+
+
+    background-color: beige;
+    border: 2px solid black;
+    padding: 10px;
+}
+.elem {
+    border: 2px solid black;
+    border-radius: 20%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px;     
+}

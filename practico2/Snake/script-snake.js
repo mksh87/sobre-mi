@@ -4,7 +4,7 @@ var total_col = total_row; //total column number
 if(window.innerHeight > window.innerWidth){	
 var blockSize = Math.floor(window.innerWidth / (total_row*1.2));
 } else {
-	var blockSize = Math.floor(window.innerHeight / (total_row*1.3));
+	var blockSize = Math.floor(window.innerHeight / (total_row*1.4));
 }
 var board;
 var context;
@@ -27,6 +27,8 @@ var plus= [];
 var gameOver = false;
 
 const puntajeTexto = document.getElementById("puntaje");
+const nivelTexto = document.getElementById("nivel");
+
 
 //Esta parte es para que también funcione con botones en pantalla tactil
 const arrowButtons = document.querySelectorAll('.arrow');
@@ -83,7 +85,7 @@ function update() {
 	for(i=carLength-1;i>0;i--){
 		context.fillRect(car[i][0], car[i][1], blockSize, blockSize);
 	}
-	isOUT(); 
+	isOUT();
 	isCrash();
 	isPlus(); //Suma puntos, alarga la víbora y genera nueva casilla Plus.
 
@@ -130,7 +132,12 @@ function isOUT() {
 	}
 }
 function isCrash() {
-	
+	for(let i=1;i<carLength-1;i++){
+		if (car[i][0]===carX && car[i][1]===carY){
+					gameOver = true;
+		alert("Game Over");
+		}
+	}
 }
 
 function isPlus(){
@@ -141,8 +148,9 @@ function isPlus(){
 	}
 	puntajeTexto.textContent="Tu puntaje es: "+(carLength-2);
 
-	if(carLength%7===0){
+	if(carX===plusX && carY===plusY && carLength%7===0){
 		level +=1;
+		nivelTexto.textContent="Nivel: "+level;
 	}
 
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El juego del Autito</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+ 
+<body>
+    <section class="boardContainer" id="boardContainer">
+    <h1>El juego del Autito</h1>
+    <canvas id="board"></canvas>
+    </section>
+    <section class="scoreContainer" id="scoreContainer">
+        <h2><span id="lap"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="time"></span></h2>
+    </section>
+    <section class="arrowContainer" id="arrowContainer">
+        <aside class="arrow arrow-up" data-keycode="38"></aside>
+        <aside class="arrow arrow-right" data-keycode="39"></aside>
+        <aside class="arrow arrow-left" data-keycode="37"></aside>
+        <aside class="arrow arrow-down" data-keycode="40"></aside>
+    </section>
+
+    <script src="./script-car.js"></script>
+</body>
+</html>
