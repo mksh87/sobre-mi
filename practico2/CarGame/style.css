@@ -1,4 +1,54 @@
-body{
+html {
+    background-color: rgb(31, 31, 31);
+    color: white;
+}
+
+body {
     text-align: center;
-    background-color:blueviolet;
+    justify-items: center;
+    display: grid;
+}
+
+.arrowContainer {
+    padding: 25px 0px 0px 25px;
+    display: grid;
+    grid-template-rows: 70px 70px;
+    grid-template-columns: 70px 70px;
+    transform: rotate(45deg);
+}
+
+/*Si se ve desde la PC no muestra botones. Solo para pantallas táctiles*/
+@media (min-width: 600px) {
+    .arrowContainer {
+        display: none;
+    }
+}
+
+.arrow {
+    align-self: center;
+    width:50px;
+    height: 50px;
+    margin: 40px auto;
+    background-color: whitesmoke;
+    /* change to transparent in production */
+    border: 4px solid tomato;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    cursor: pointer;
+}
+
+.arrow-up {
+    transform: rotate(0deg);
+}
+
+.arrow-down {
+    transform: rotate(180deg);
+}
+
+.arrow-right {
+    transform: rotate(90deg);
+}
+
+.arrow-left {
+    transform: rotate(270deg);
 }
