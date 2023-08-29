@@ -17,7 +17,6 @@ const codigoElement = document.getElementById("codigo"); //div del juego (para m
 const btnGen = document.getElementById("codigo2"); // toma los elementos del div codigo, que es el de los botones PPT.
 const buttons = document.getElementsByName("eleccion");// botones de opciones
 let originalOnClicks = {}; // Para almacenar los eventos onclick originales
-let ultimoBotonPresionado = null; // Para almacenar el último botón presionado
 
 function elegirUsername() {
   const inputField = document.querySelector("#userName");
@@ -31,14 +30,6 @@ function elegirUsername() {
 function mostrarPuntaje() {
   document.getElementById('one').style.display = "block";
   document.getElementById('two').style.display = "block";
-}
-
-function cambiarFondo(boton) {// Cambiar el fondo del botón presionado a verde
-  if (ultimoBotonPresionado !== null) {  // Restablecer el fondo del último botón presionado a su estado original
-    ultimoBotonPresionado.style.backgroundColor = '';
-  }
-  boton.style.backgroundColor = 'green';  // Establecer el fondo del botón presionado a verde
-  ultimoBotonPresionado = boton;  // Guardar el botón presionado como el último botón
 }
 
 function desactivarOnClick() {   // Desactivar los eventos onclick
@@ -64,14 +55,42 @@ function generarBotones() {
   while (btnGen.firstChild) {
     btnGen.removeChild(btnGen.firstChild);
   }    // Eliminar botones previos
+
+  const casillero1 = document.createElement("div");
+  casillero1.textContent = "Vos";
+  const button0 = document.createElement("div");
+  button0.textContent = "Elije una opción";
+  const casillero2 = document.createElement("div");
+  casillero2.textContent = "PC";
+  btnGen.appendChild(casillero1);
+  btnGen.appendChild(button0);
+  btnGen.appendChild(casillero2);
+
   for (let i = 0; i < jugadas.length; i++) {
-    let button = document.createElement("button");
+
+    const casillero1 = document.createElement("div");
+    casillero1.id = "playerDiv" + i;
+    casillero1.innerHTML = "<span class='icon solid fa-arrow-right'>";
+    casillero1.classList.add("casillero");
+
+    const button = document.createElement("button");
     button.className = "button fit";
     button.name = "eleccion";
     button.id = jugadas[i];
-    button.setAttribute("onclick", "determinarGanador(" + i + ");cambiarFondo(this)");
+    button.setAttribute("onclick", "determinarGanador(" + i + ")");
     button.textContent = jugadas[i].toUpperCase();
+    button.classList.add("eleccion");
+
+
+    const casillero2 = document.createElement("div");
+    casillero2.id = "compDiv" + i;
+    casillero2.innerHTML = "<span class='icon solid fa-arrow-left'>";
+    casillero2.classList.add("casillero");
+
+    btnGen.appendChild(casillero1);
     btnGen.appendChild(button);
+    btnGen.appendChild(casillero2);
+
   }
 }
 
@@ -101,12 +120,26 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
 function obtenerJugadaUsuario(valor) { //Devuelve elección de usuario según botón que presione.
   usuario = Number(valor);
   mensajeUsuario.textContent = "Elegiste " + jugadas[usuario].toUpperCase();
+  for (let i = 0; i < buttons.length; i++) {
+    document.getElementById("playerDiv" + i).style.backgroundColor = "";
+    document.getElementById("playerDiv" + i).style.color = "rgba(0, 0, 0, 0)";
+  }
+  document.getElementById("playerDiv" + usuario).style.backgroundColor = "green";
+  document.getElementById("playerDiv" + usuario).style.color = "white";
   return usuario;
 }
 
 function obtenerJugadaComputadora() {
   let computadora = Math.floor(Math.random() * jugadas.length);
   mensajeComputadora.textContent = " La computadora elige " + jugadas[computadora].toUpperCase();
+  for (let i = 0; i < buttons.length; i++) {
+    document.getElementById("compDiv" + i).style.backgroundColor = "";
+    document.getElementById("compDiv" + i).style.color = "rgba(0, 0, 0, 0)";
+
+  }
+  document.getElementById("compDiv" + computadora).style.backgroundColor = "red";
+  document.getElementById("compDiv" + computadora).style.color = "white";
+
   return computadora;
 }
 
@@ -150,9 +183,6 @@ function resetear() { //Restaura todo a la pantalla de selección de partidas
   for (let i = 0; i < opciones.length; i++) {
     opciones[i].disabled = false;
     opciones[i].checked = false;
-  }
-  if (ultimoBotonPresionado !== null) {  // Restablecer el fondo del último botón presionado a su estado original
-    ultimoBotonPresionado.style.backgroundColor = '';
   }
   mensajeElement.textContent = "";
   mensajeUsuario.textContent = "";
