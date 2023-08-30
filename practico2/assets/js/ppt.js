@@ -16,7 +16,6 @@ const opciones = document.getElementsByName("partidas"); //botones de cantidad d
 const codigoElement = document.getElementById("codigo"); //div del juego (para mostrarlo u ocultarlo)
 const btnGen = document.getElementById("codigo2"); // toma los elementos del div codigo, que es el de los botones PPT.
 const buttons = document.getElementsByName("eleccion");// botones de opciones
-let originalOnClicks = {}; // Para almacenar los eventos onclick originales
 
 function elegirUsername() {
   const inputField = document.querySelector("#userName");
@@ -35,19 +34,7 @@ function mostrarPuntaje() {
 function desactivarOnClick() {   // Desactivar los eventos onclick
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
-    let originalOnClick = button.getAttribute('onclick');
-    originalOnClicks[button.id] = originalOnClick; // Almacenar el evento onclick original
     button.removeAttribute('onclick');
-  }
-}
-
-function restaurarOnClick() { // Restaurar los eventos onclick originales
-  for (let i = 0; i < buttons.length; i++) {
-    let button = buttons[i];
-    let originalOnClick = originalOnClicks[button.id];
-    if (originalOnClick) {
-      button.setAttribute('onclick', originalOnClick);
-    }
   }
 }
 
@@ -110,7 +97,6 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
     }
     mensajeElement.textContent = "Comienza la partida. Gana quien llegue primero a " + partidas + " puntos.";
     generarBotones();
-    restaurarOnClick();
     codigoElement.style.display = "block";
   } else {
     mensajeElement.textContent = "Seleccione una alternativa para poder iniciar.";
@@ -119,7 +105,7 @@ function comenzarJuego() { //Confirma cantidad de puntos. Habilita botones con r
 
 function obtenerJugadaUsuario(valor) { //Devuelve elección de usuario según botón que presione.
   usuario = Number(valor);
-  mensajeUsuario.textContent = "Elegiste " + jugadas[usuario].toUpperCase();
+  mensajeUsuario.textContent = "Elegiste " + jugadas[usuario].toUpperCase()+". ";
   for (let i = 0; i < buttons.length; i++) {
     document.getElementById("playerDiv" + i).style.backgroundColor = "";
     document.getElementById("playerDiv" + i).style.color = "rgba(0, 0, 0, 0)";
