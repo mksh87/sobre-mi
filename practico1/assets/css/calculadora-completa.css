@@ -95,8 +95,9 @@ button-30:active {
   background-color: #b7b4b4;
   max-width: 300px;
   grid-gap: 10px;
-    display: flex;
-  align-self: center;    
+  display: flex;
+  align-self: center;
+  flex-basis: fit-content;
 }
 
 /* Para pantallas verticales basarse en el ancho */
